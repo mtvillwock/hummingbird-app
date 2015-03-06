@@ -17,7 +17,7 @@ var body = '<html>'+
  '</body>'+
  '</html>';
 
-    response.writeHead(200, {"Content-Type": "text/plain"});
+    response.writeHead(200, {"Content-Type": "text/html"});
     response.write(body);
     response.end();
 }
@@ -25,8 +25,7 @@ var body = '<html>'+
 function upload(response, postData) {
   console.log("Request handler 'upload' was called.");
   response.writeHead(200, {"Content-Type": "text/plain"});
-  response.write("You've sent the text: " + postData);
-  querystring.parse(postData).text);
+  response.write("You've sent the text: " + querystring.parse(postData).text);
   response.end();
 }
 
