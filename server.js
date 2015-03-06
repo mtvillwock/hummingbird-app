@@ -1,28 +1,22 @@
-var http = require("http");
-var url = require("url");
 
-function start(route, handle) {
-  function onRequest(request, response) {
-    var postData = "";
-    var pathname = url.parse(request.url).pathname;
-    console.log("Request for " + pathname + " received.");
+//initialize app
+var express   = require('express');
+var path      = require('path');
+var morgan    = require("morgan");
+var mongoose  = require("mongoose");
+var app       = express();
+// var routes    = require('./routes')(app);
 
-    request.setEncoding("utf8");
+// all environments
 
-    request.addListener("data", function(postDataChunk) {
-      postData += postDataChunk;
-      console.log("Received POST data chunk " +
-        postDataChunk + ".");
-    });
+// app.engine('html', require('ejs').renderFile);
+// app.set('view engine', 'ejs');
+// app.use(express.static(path.join(__dirname, 'public')));
 
-    request.addListener("end", function() {
-      route(handle, pathname, postData);
-    });
+var port = process.env.PORT || 9000;
+app.use(morgan('dev'));
+app.use(express.static(__dirname + '/app'));
+app.listen(port);
+console.log('Node express server running on port ' + port);
 
-  }
 
-  http.createServer(onRequest).listen(8888);
-  console.log("Server has started.");
-}
-
-exports.start = start;
