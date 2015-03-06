@@ -13,7 +13,7 @@ function start(route, handle) {
       postData += postDataChunk;
       console.log("Received POST data chunk " +
         postDataChunk + ".");
-    })
+    });
 
     request.addListener("end", function() {
       route(handle, pathname, postData);
