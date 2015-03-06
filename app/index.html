@@ -3,9 +3,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <link rel="stylesheet" type="text/css" href="stylesheets.css">
     <title>Hummingbird</title>
 
-  <body ng-app="starter">
-    <p>Hello world</p>
+  <body>
+    <h1>Welcome to Hummingbird</h1>
+    <h2>Texts delivered when you want</h2>
+    <div>
+      <form class="new_message" action="/new_message">
+      <input type="text" name="to" label="To" placeholder="Type recipient number...">
+      <br>
+      <input type="text" name="body" label="Message" placeholder="Message content here...">
+      <br>
+      <input type="submit" value="Schedule a Hummingbird">
+    </form>
+    </div>
   </body>
 </html>
